@@ -4,7 +4,7 @@
         <referenceBlock name="product.info.details">
             <block class="TwentyToo\AutoTag\Block\CustomTab" name="custom.tab" as="custom_tab" template="TwentyToo_AutoTag::custom_tab.phtml" group="detailed_info">
                 <arguments>
-                    <argument translate="true" name="title" xsi:type="string">Custom Tab Title</argument>
+                    <argument translate="true" name="title" xsi:type="string">Product Tags</argument>
                 </arguments>
             </block>
         </referenceBlock>
