@@ -3,8 +3,9 @@
 namespace TwentyToo\AutoTag\Block;
 
 use Magento\Framework\View\Element\Template;
-use Magento\Framework\View\Element\Template\Context;
+use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\ResourceConnection;
+
 
 class CustomTab extends Template
 {
@@ -14,33 +15,41 @@ class CustomTab extends Template
         Context $context,
         ResourceConnection $resourceConnection
     ) {
-        parent::__construct($context);
         $this->resourceConnection = $resourceConnection;
     }
-
     public function getCustomData()
     {
-        $connection = $this->resourceConnection->getConnection();
-        $tableName = $this->resourceConnection->getTableName('twentytoo_tags');
-        $query = $connection->select()->from($tableName)->where('order_id = ?', 'dress2');
-        $data = $connection->fetchAll($query);
+        $data = [
+            'eng_tags' => [
+                'Color' => 'Black And White',
+                'Department' => 'Sets',
+                'Detail' => 'Pocket',
+                'Fit' => 'Oversized',
+                'Neckline' => 'Round Neck',
+                'Pattern' => 'Plain',
+                'Sleeve-Length' => 'Long Sleeve',
+                'Style' => 'Casual',
+                'Type' => 'Sweatshirt',
+                'Sleeve Type' => 'Drop Shoulder',
+                'Target-Audience' => 'Women',
+                'Title' => 'drop shoulder pullover & wide leg pants'
+            ],
+            'ar_tags' => [
+                'اللون' => 'أسود وأبيض',
+                'القسم' => 'الأطقم',
+                'التفصيل' => 'جيب',
+                'المقاس' => 'كبير الحجم',
+                'قصة العنق' => 'العنق المستدير',
+                'نمط' => 'سادة',
+                'طول الأكمام' => 'أكمام طويلة',
+                'ستايل' => 'كاجوال',
+                'النوع' => 'سويتشيرت',
+                'نوع الأكمام' => 'الكتف المنخفض',
+                'الجمهور المستهدف' => 'نساء',
+                'Title' => '"سترة بأكمام واسعة وبنطلون واسع"'
+            ]
+        ];
 
-        $engTags = [];
-        $arTags = [];
-        foreach ($data as $item) {
-            // Assuming the 'tag_name' column contains the tag name and the 'tag_value' column contains the tag value
-            $tagName = $item['tag_name'];
-            $tagValue = $item['tag_value'];
-            
-            // Determine language based on the tag name (e.g., if it contains Arabic characters)
-            if (preg_match('/\p{Arabic}/u', $tagName)) {
-                $arTags[$tagName] = $tagValue;
-            } else {
-                $engTags[$tagName] = $tagValue;
-            }
-        }
-
-        // Return the data as separate arrays for English and Arabic tags
-        return ['eng_tags' => $engTags, 'ar_tags' => $arTags];
+        return $data;
     }
 }
