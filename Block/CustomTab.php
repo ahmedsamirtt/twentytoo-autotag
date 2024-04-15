@@ -6,7 +6,6 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\ResourceConnection;
 
-
 class CustomTab extends Template
 {
     protected $resourceConnection;
@@ -15,8 +14,10 @@ class CustomTab extends Template
         Context $context,
         ResourceConnection $resourceConnection
     ) {
+        parent::__construct($context);
         $this->resourceConnection = $resourceConnection;
     }
+
     public function getCustomData()
     {
         $connection = $this->resourceConnection->getConnection();
@@ -42,5 +43,4 @@ class CustomTab extends Template
         // Return the data as separate arrays for English and Arabic tags
         return ['eng_tags' => $engTags, 'ar_tags' => $arTags];
     }
-    
 }
