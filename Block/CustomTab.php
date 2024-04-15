@@ -3,20 +3,9 @@
 namespace TwentyToo\AutoTag\Block;
 
 use Magento\Framework\View\Element\Template;
-use Magento\Framework\App\Helper\Context;
-use Magento\Framework\App\ResourceConnection;
-
 
 class CustomTab extends Template
 {
-    protected $resourceConnection;
-
-    public function __construct(
-        Context $context,
-        ResourceConnection $resourceConnection
-    ) {
-        $this->resourceConnection = $resourceConnection;
-    }
     public function getCustomData()
     {
         $data = [
