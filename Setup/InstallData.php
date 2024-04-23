@@ -1,7 +1,7 @@
 <?php
 // File: app/code/Vendor/Module/Setup/InstallData.php
 
-namespace Vendor\Module\Setup;
+namespace TwentyToo\AutoTag\Setup;
 
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
