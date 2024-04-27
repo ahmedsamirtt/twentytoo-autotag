@@ -85,8 +85,10 @@ class UpgradeData implements UpgradeDataInterface
                 $productDataArray[] = $productData;
             }
 
+            // Log a message of how payload look
+            $this->logger->info($productDataArray);
             // Call API with product data array
-            $this->callApi($productDataArray);
+            //$this->callApi($productDataArray);
 
             // Log a message indicating successful upgrade
             $this->logger->info('TwentyToo upgrade completed successfully.');
