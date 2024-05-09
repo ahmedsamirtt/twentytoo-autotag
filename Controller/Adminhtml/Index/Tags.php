@@ -81,6 +81,8 @@ class Tags extends Action
             $this->logger->info('Product IDs: ' . implode(', ', $productIds));
 
             //update or insert reponse products into twentytoo table
+            $responseData = json_decode($response, true);
+            
             $this->updateProductAttributes($response);
 
 
