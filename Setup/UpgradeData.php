@@ -112,7 +112,7 @@ class UpgradeData implements UpgradeDataInterface
         $productData = [
             'title' => $product->getName(),
             'description' => $product->getMetaDescription(),
-            'img' => $this->getProductImageUrl($product),
+            //'img' => $this->getProductImageUrl($product),
             //'department' => $product->getAttributeText('product_type'),
             'id' => $product->getId(),
             'target_audience' => $product->getTags()
@@ -151,7 +151,7 @@ class UpgradeData implements UpgradeDataInterface
     $headers->addHeaders([
         'Content-Type' => 'application/json',
         'language' => 'en',
-        'x-api-key' => '5abo79x1nc',
+        'x-api-key' => 'nm5jubrhx8',
         'uploadType' => 'webhook'
     ]);
 
